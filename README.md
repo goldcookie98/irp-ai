@@ -1,5 +1,5 @@
 # React + Vite
-[Live Preview](https://goldcookie98.github.io/irp-ai/)
+[Site link](https://goldcookie98.github.io/irp-ai/)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
