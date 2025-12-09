@@ -1,96 +1,162 @@
 import { motion } from 'framer-motion';
-import { BarChart, Search, Tv, Utensils } from 'lucide-react';
+import AnimatedBarChart from './AnimatedBarChart';
 
 export default function Evidence() {
+    // Data for Water Consumption Chart
+    const waterData = [
+        { label: 'ChatGPT', sublabel: '~300 queries', value: 1 },
+        { label: 'TV', sublabel: '1 hour', value: 4 },
+        { label: 'Hamburger', sublabel: '1 burger', value: 660 }
+    ];
+
+    // Data for Text Writing Carbon Footprint (logarithmic)
+    const textCarbonData = [
+        { label: 'BLOOM', sublabel: 'writing one page', value: 0.7 },
+        { label: 'ChatGPT', sublabel: 'writing one page', value: 1.2 },
+        { label: 'Laptop', sublabel: 'for duration of human writing one page', value: 20 },
+        { label: 'Desktop', sublabel: 'for duration of human writing one page', value: 70 },
+        { label: 'Human (From India)', sublabel: 'writing one page', value: 150 },
+        { label: 'Human (From US)', sublabel: 'writing one page', value: 1000 }
+    ];
+
+    // Data for Image Creation Carbon Footprint (logarithmic)
+    const imageCarbonData = [
+        { label: 'Midjourney', sublabel: 'creating one image', value: 1.5 },
+        { label: 'DALL-E2', sublabel: 'creating one image', value: 1.8 },
+        { label: 'Laptop', sublabel: 'for duration of human creating one image', value: 100 },
+        { label: 'Desktop', sublabel: 'for duration of human creating one image', value: 300 },
+        { label: 'Human (From India)', sublabel: 'creating one image', value: 700 },
+        { label: 'Human (From US)', sublabel: 'creating one image', value: 5000 }
+    ];
+
     return (
-        <section className="section-container min-h-screen py-20">
-            <div className="max-w-6xl mx-auto w-full">
+        <section className="py-20 bg-black">
+            <div className="max-w-7xl mx-auto px-6">
+                {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mb-20 text-center"
+                    viewport={{ once: true, amount: 0.3 }}
+                    className="mb-32 text-center"
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold mb-4">Saving the Planet 🌍</h2>
-                    <div className="text-6xl md:text-9xl font-bold text-blue-500 my-8">
+                    <h2 className="text-4xl md:text-6xl font-bold mb-4">Evidence 📊</h2>
+                    <div className="text-6xl md:text-8xl font-bold text-blue-500 my-8">
                         1.5% - 4%
                     </div>
-                    <p className="text-xl md:text-2xl text-gray-400">
-                        Potential global greenhouse gas emission reduction by Ai by 2030.
+                    <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto">
+                        Potential global greenhouse gas emission reduction by AI by 2030.
                     </p>
                 </motion.div>
 
-                {/* Comparison Chart based on the User's Image */}
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-
-                    {/* Context */}
+                {/* Chart Section 1: Water Consumption */}
+                <div className="grid md:grid-cols-5 gap-12 items-center mb-32">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6 }}
+                        className="md:col-span-2"
                     >
-                        <h3 className="text-2xl md:text-4xl font-bold mb-6">The Real Water Cost</h3>
-                        <p className="text-lg text-gray-400 mb-6">
-                            We worry about AI's water consumption, but how does it actually compare to daily activities?
+                        <h3 className="text-3xl md:text-4xl font-bold mb-6">The Real Water Cost</h3>
+                        <p className="text-lg text-gray-400 mb-6 leading-relaxed">
+                            We worry about AI's water consumption, but how does it actually compare to our daily activities?
                         </p>
-                        <ul className="space-y-4 text-gray-300">
-                            <li className="flex items-center gap-3">
-                                <Search className="text-blue-500" /> ~300 ChatGPT queries = 1 gallon
-                            </li>
-                            <li className="flex items-center gap-3">
-                                <Tv className="text-purple-500" /> 1 hour of TV = ~4 gallons (Power gen)
-                            </li>
-                            <li className="flex items-center gap-3">
-                                <Utensils className="text-orange-500" /> 1 Hamburger = ~660 gallons
-                            </li>
-                        </ul>
+                        <p className="text-gray-400 leading-relaxed">
+                            While ~300 ChatGPT queries use about 1 gallon of water, a single hamburger requires
+                            <span className="text-orange-400 font-bold"> ~660 gallons</span>.
+                            The narrative around AI's environmental impact often overlooks this crucial context.
+                        </p>
                     </motion.div>
 
-                    {/* Visual Bar Chart */}
-                    <div className="bg-zinc-900/50 p-8 rounded-2xl border border-white/10 relative h-[400px] flex items-end justify-around gap-4">
-                        {/* 1 Gallon (ChatGPT) */}
-                        <div className="flex flex-col items-center w-1/3 group">
-                            <div className="mb-2 text-xs text-blue-300 opacity-0 group-hover:opacity-100 transition-opacity">1 gal</div>
-                            <motion.div
-                                initial={{ height: 0 }}
-                                whileInView={{ height: '5px' }} // Scale relative to 660 is tiny, so we give it a min visibility
-                                viewport={{ once: true }}
-                                transition={{ duration: 1, delay: 0.2 }}
-                                className="w-full bg-blue-500 rounded-t-lg relative"
-                            >
-                                <div className="absolute -top-8 w-full text-center font-bold">AI</div>
-                            </motion.div>
-                        </div>
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="md:col-span-3"
+                    >
+                        <AnimatedBarChart
+                            data={waterData}
+                            title="Water Consumption (Gallons)"
+                            yAxisLabel="Water (Gallons)"
+                            maxValue={660}
+                            isLogarithmic={false}
+                        />
+                    </motion.div>
+                </div>
 
-                        {/* 4 Gallons (TV) */}
-                        <div className="flex flex-col items-center w-1/3 group">
-                            <div className="mb-2 text-xs text-purple-300 opacity-0 group-hover:opacity-100 transition-opacity">4 gal</div>
-                            <motion.div
-                                initial={{ height: 0 }}
-                                whileInView={{ height: '20px' }} // 4x AI
-                                viewport={{ once: true }}
-                                transition={{ duration: 1, delay: 0.4 }}
-                                className="w-full bg-purple-500 rounded-t-lg relative"
-                            >
-                                <div className="absolute -top-8 w-full text-center font-bold">TV</div>
-                            </motion.div>
-                        </div>
+                {/* Chart Section 2: Carbon Footprint for Text Writing */}
+                <div className="grid md:grid-cols-5 gap-12 items-center mb-32">
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6 }}
+                        className="md:col-span-2"
+                    >
+                        <h3 className="text-3xl md:text-4xl font-bold mb-6">Carbon Cost of Writing</h3>
+                        <p className="text-lg text-gray-400 mb-6 leading-relaxed">
+                            AI-powered writing tools are dramatically more efficient than traditional methods.
+                        </p>
+                        <p className="text-gray-400 leading-relaxed">
+                            ChatGPT and BLOOM produce just <span className="text-blue-400 font-bold">~1 gram of CO2e</span> per page,
+                            while a human writer in the US generates <span className="text-white font-bold">~1000 grams</span> -
+                            that's <span className="text-red-400 font-bold">1000x more</span> carbon emissions for the same output.
+                        </p>
+                    </motion.div>
 
-                        {/* 660 Gallons (Burger) - We will scale this logarithmically or break the chart visually because 660 is huge compared to 1 */}
-                        <div className="flex flex-col items-center w-1/3 group">
-                            <div className="mb-2 text-xs text-orange-300 opacity-0 group-hover:opacity-100 transition-opacity">~660 gal</div>
-                            <motion.div
-                                initial={{ height: 0 }}
-                                whileInView={{ height: '100%' }} // Full height
-                                viewport={{ once: true }}
-                                transition={{ duration: 1.2, delay: 0.6 }}
-                                className="w-full bg-orange-500 rounded-t-lg relative overflow-hidden"
-                            >
-                                <div className="absolute -top-8 w-full text-center font-bold">Food</div>
-                                <div className="absolute top-0 w-full h-full bg-orange-400/20 animate-pulse" />
-                            </motion.div>
-                        </div>
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="md:col-span-3"
+                    >
+                        <AnimatedBarChart
+                            data={textCarbonData}
+                            title="Carbon footprint (grams CO2e) for Text Writing"
+                            yAxisLabel="Carbon footprint (grams CO2e, log scale)"
+                            maxValue={1000}
+                            isLogarithmic={true}
+                        />
+                    </motion.div>
+                </div>
+
+                {/* Chart Section 3: Carbon Footprint for Image Creation */}
+                <div className="grid md:grid-cols-5 gap-12 items-center mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6 }}
+                        className="md:col-span-2"
+                    >
+                        <h3 className="text-3xl md:text-4xl font-bold mb-6">Carbon Cost of Images</h3>
+                        <p className="text-lg text-gray-400 mb-6 leading-relaxed">
+                            AI image generation is revolutionizing creative work with minimal environmental impact.
+                        </p>
+                        <p className="text-gray-400 leading-relaxed">
+                            Midjourney and DALL-E2 create images with just <span className="text-blue-400 font-bold">~1-2 grams of CO2e</span>,
+                            while a human artist in the US produces <span className="text-white font-bold">~5000 grams</span> -
+                            over <span className="text-red-400 font-bold">2500x more</span> emissions per image.
+                        </p>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="md:col-span-3"
+                    >
+                        <AnimatedBarChart
+                            data={imageCarbonData}
+                            title="Carbon footprint (grams CO2e) for Image Creation"
+                            yAxisLabel="Carbon footprint (grams CO2e, log scale)"
+                            maxValue={5000}
+                            isLogarithmic={true}
+                        />
+                    </motion.div>
                 </div>
             </div>
         </section>

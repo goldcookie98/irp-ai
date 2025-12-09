@@ -34,7 +34,7 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
                 >
-                    Why AI is not as bad<br />as everyone thinks.
+                    Why AI is great<br />
                 </motion.h1>
 
                 <motion.p
