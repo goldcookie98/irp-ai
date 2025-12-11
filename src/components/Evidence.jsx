@@ -4,7 +4,7 @@ import ScrollDrivenChart from './ScrollDrivenChart';
 export default function Evidence() {
     // Water Consumption Data
     const waterData = [
-        { label: 'ChatGPT', value: 1 },
+        { label: '~300 ChatGPT queries', value: 1 },
         { label: 'TV', value: 4 },
         { label: 'Hamburger', value: 660 }
     ];
@@ -12,19 +12,18 @@ export default function Evidence() {
     const waterStorySteps = [
         {
             text: "Let's examine AI's water consumption in context...",
-            visibleBars: 0
         },
         {
             text: "300 ChatGPT queries use about 1 gallon of water.",
-            visibleBars: 1
+            visibleBars: 0
         },
         {
             text: "Watching 1 hour of TV uses 4 gallons - 4x more than AI.",
-            visibleBars: 2
+            visibleBars: 1
         },
         {
             text: "A single hamburger? 660 gallons. That's 660x more than those AI queries.",
-            visibleBars: 3
+            visibleBars: 2
         }
     ];
 

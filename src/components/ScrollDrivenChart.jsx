@@ -124,8 +124,7 @@ export default function ScrollDrivenChart({
                         height: '500px',
                         padding: '24px',
                         backgroundColor: '#000',
-                        borderRadius: '12px',
-                        border: '4px solid rgba(255, 255, 255, 0.5)'
+                        borderRadius: '12px'
                     }}>
                         {/* Title */}
                         {title && (
@@ -216,10 +215,7 @@ export default function ScrollDrivenChart({
                                                 marginBottom: '12px',
                                                 fontSize: '16px',
                                                 fontWeight: '900',
-                                                color: '#fff',
-                                                padding: '8px 12px',
-                                                backgroundColor: '#3b82f6',
-                                                borderRadius: '6px'
+                                                color: '#fff'
                                             }}>
                                                 {formatValue(item.value)}
                                             </div>

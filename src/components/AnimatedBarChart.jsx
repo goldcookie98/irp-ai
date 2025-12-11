@@ -115,7 +115,7 @@ export default function AnimatedBarChart({
                                         fontWeight: '900',
                                         color: '#fff',
                                         padding: '8px 12px',
-                                        backgroundColor: '#3b82f6',
+                                        backgroundColor: '#000000',
                                         borderRadius: '6px'
                                     }}
                                 >
@@ -130,9 +130,9 @@ export default function AnimatedBarChart({
                                     style={{
                                         width: '100%',
                                         maxWidth: '70px',
-                                        background: 'linear-gradient(to top, #3b82f6, #93c5fd)',
+                                        background: 'linear-gradient(to top, #000000, #000000)',
                                         border: '2px solid #fff',
-                                        boxShadow: '0 20px 25px -5px rgba(59, 130, 246, 0.5)',
+                                        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5)',
                                         minHeight: '6px'
                                     }}
                                 />

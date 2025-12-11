@@ -34,7 +34,7 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
                 >
-                    Why AI is great<br />
+                    AI's effect on the Environment.<br />
                 </motion.h1>
 
                 <motion.p
@@ -43,7 +43,7 @@ export default function Hero() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                 >
-                    Moving beyond the fear to see the potential for a sustainable future.
+                    Proving that Artificial Intelligence is not as detrimental to the environment as previously thought.
                 </motion.p>
             </motion.div>
 
