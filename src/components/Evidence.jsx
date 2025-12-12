@@ -12,18 +12,19 @@ export default function Evidence() {
     const waterStorySteps = [
         {
             text: "Let's examine AI's water consumption in context...",
-        },
-        {
-            text: "300 ChatGPT queries use about 1 gallon of water.",
             visibleBars: 0
         },
         {
-            text: "Watching 1 hour of TV uses 4 gallons - 4x more than AI.",
+            text: "300 ChatGPT queries use about 1 gallon of water.",
             visibleBars: 1
         },
         {
-            text: "A single hamburger? 660 gallons. That's 660x more than those AI queries.",
+            text: "Watching 1 hour of TV uses 4 gallons - 4x more than AI.",
             visibleBars: 2
+        },
+        {
+            text: "A single hamburger? 660 gallons. That's 660x more than those AI queries.",
+            visibleBars: 3
         }
     ];
 

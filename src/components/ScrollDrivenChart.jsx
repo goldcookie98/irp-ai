@@ -201,12 +201,22 @@ export default function ScrollDrivenChart({
                                                 position: 'relative',
                                                 opacity: useTransform(
                                                     scrollYProgress,
-                                                    storySteps.map((step, stepIndex) =>
-                                                        stepIndex / storySteps.length
-                                                    ),
-                                                    storySteps.map(step =>
-                                                        step.visibleBars > index ? 1 : 0
-                                                    )
+                                                    (() => {
+                                                        // Find when this bar should appear
+                                                        const appearStep = storySteps.findIndex(step => step.visibleBars > index);
+                                                        if (appearStep === -1) return [0, 1];
+
+                                                        const startProgress = appearStep / storySteps.length;
+                                                        const fadeInEnd = (appearStep + 0.3) / storySteps.length;
+
+                                                        return [0, startProgress, fadeInEnd, 1];
+                                                    })(),
+                                                    (() => {
+                                                        const appearStep = storySteps.findIndex(step => step.visibleBars > index);
+                                                        if (appearStep === -1) return [0, 0];
+
+                                                        return [0, 0, 1, 1]; // Stay invisible until startProgress, fade to 1, then stay 1
+                                                    })()
                                                 )
                                             }}
                                         >
