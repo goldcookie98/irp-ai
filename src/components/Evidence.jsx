@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+
 import ScrollDrivenChart from './ScrollDrivenChart';
 
 export default function Evidence() {
@@ -19,11 +20,11 @@ export default function Evidence() {
             visibleBars: 1
         },
         {
-            text: "Watching 1 hour of TV uses 4 gallons - 4x more than AI.",
+            text: "Watching 1 hour of TV uses 4 gallons - 4x more than AI. This means 1 hour of TV uses about 120,000 ChatGPT queries.",
             visibleBars: 2
         },
         {
-            text: "A single hamburger? 660 gallons. That's 660x more than those AI queries.",
+            text: "A single hamburger? 660 gallons. That's 660x more than those AI queries. So one hamburger is around 198,000 ChatGPT queries.",
             visibleBars: 3
         }
     ];
@@ -112,24 +113,6 @@ export default function Evidence() {
 
     return (
         <section className="min-h-screen bg-black text-white py-20 px-8">
-            {/* Header */}
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="max-w-4xl mx-auto mb-20 text-center"
-            >
-                <h2 className="text-5xl md:text-6xl font-bold mb-8">
-                    Evidence 📊
-                </h2>
-                <p className="text-2xl text-gray-400">
-                    AI accounts for just{' '}
-                    <span className="text-blue-400 font-bold">1.5% - 4%</span>{' '}
-                    of global data center electricity consumption
-                </p>
-            </motion.div>
-
             {/* Scroll-Driven Chart 1: Water Consumption */}
             <ScrollDrivenChart
                 storySteps={waterStorySteps}
