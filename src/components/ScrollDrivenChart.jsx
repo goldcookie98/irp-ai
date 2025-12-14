@@ -255,10 +255,7 @@ export default function ScrollDrivenChart({
                                                 textAlign: 'center',
                                                 color: '#fff',
                                                 width: '120px',
-                                                lineHeight: '1.2',
-                                                whiteSpace: 'nowrap',
-                                                overflow: 'hidden',
-                                                textOverflow: 'ellipsis'
+                                                lineHeight: '1.2'
                                             }} title={item.label}>
                                                 {item.label}
                                             </div>
